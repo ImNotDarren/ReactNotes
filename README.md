@@ -10,6 +10,10 @@
 - - [useState](#link-part-6-1)
 - - [useEffect](#link-part-6-2)
 - - [createContext](#link-part-6-3)
+- - [useContext](#link-part-6-4)
+- [Control Components](#link-part-7)
+
+
 ### <a name="link-part-1">Create React project</a>
 ```
 $ npx create-react-app ${app_name}
@@ -112,7 +116,7 @@ There's no lifecycle or state in RFC.
 
 ### <a name="link-part-6">Hook</a>
 
-#### <a name="link-part-6-1">useState</a>
+#### <a name="link-part-6-1">1. useState</a>
 
 Use `useState` as the `setState` function in React class component.
 
@@ -138,7 +142,8 @@ function Hook(){
 
 export default Hook
 ```
-#### <a name="link-part-6-2">useEffect</a>
+
+#### <a name="link-part-6-2">2. useEffect</a>
 
 `useEffect` can simulate a lifecycle.
 
@@ -171,14 +176,16 @@ useEffect(()=>{
 })
 ```
 
-#### <a name="link-part-6-3">createContext</a>
+#### <a name="link-part-6-3">3. createContext</a>
 
 Initialize a context first:
+
 ```jsx
 const NumContext = createContext()
 ```
 
 Top component:
+
 ```jsx
 export default function AppContext() {
     const [num, setNum] = useState(123)
@@ -191,11 +198,13 @@ export default function AppContext() {
 ```
 
 Father component:
+
 ```jsx
 const Father = () => <Child/>
 ```
 
 Child component:
+
 ```jsx
 function Child(){
     return (
@@ -209,6 +218,49 @@ function Child(){
                 )
            }
         </NumContext.Consumer>
+    )
+}
+```
+
+
+#### <a name="link-part-6-4">4. useContext</a>
+
+Get `num` and `setNum` from top component using `useContext`.
+
+The only difference is in the child component:
+
+```jsx
+function Child(){
+    // get num and setNum from top component using useContext
+    const {num, setNum} = useContext(NumContext)
+    return (
+        <>
+            <h2>{num}</h2>
+            <button onClick={()=>setNum(456)}>change</button>
+        </>
+    )
+
+}
+```
+
+#### <a name="link-part-7">Controlled Components and Uncrontrolled Components</a>
+
+```jsx
+export default function App5() {
+        const [value, setValue] = useState("asd")
+        const inputChange = (e) => setValue(e.target.value)
+        const element = useRef(null)
+
+    return (
+        <div>
+            <h3>Controlled Components：</h3>
+            <input type="text" value={value} onChange={inputChange} />
+            <button onClick={()=>console.log(value)}>get input</button>
+            <hr/>
+            <h3>Uncontrolled Components：</h3>
+            <input type="text" ref={element}/>
+            <button onClick={()=>console.log(element.current.value)}>get input</button>
+        </div>
     )
 }
 ```
