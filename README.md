@@ -329,4 +329,36 @@ Install:
 $ npm i redux react-redux
 ```
 
+Create  a `store` folder under `/src`.
+
+Create two files - index.js and reducer.js under `/src/store`.
+
+Create a initial state in reducer.js, and export a function:
+
+```js
+const defaultState = {
+    num: 1
+}
+
+// export a function
+export default (state=defaultState) => {
+    return state
+}
+```
+
+Create a store and export it in index.js
+
+```js
+// import reducer
+import reducer from "./reducer";
+
+// create store
+import { legacy_createStore } from "redux";
+
+const store = legacy_createStore(reducer)
+
+// export store
+export default store
+```
+
 
