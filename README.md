@@ -11,7 +11,8 @@
 - - [useEffect](#link-part-6-2)
 - - [createContext](#link-part-6-3)
 - - [useContext](#link-part-6-4)
-- [Control Components](#link-part-7)
+- [Controlled Components and Uncontrolled Components](#link-part-7)
+- [memo, useCallback, useMemo](#link-part-8)
 
 
 ### <a name="link-part-1">Create React project</a>
@@ -243,7 +244,7 @@ function Child(){
 }
 ```
 
-#### <a name="link-part-7">Controlled Components and Uncrontrolled Components</a>
+### <a name="link-part-7">Controlled Components and Uncrontrolled Components</a>
 
 ```jsx
 export default function App5() {
@@ -261,6 +262,60 @@ export default function App5() {
             <input type="text" ref={element}/>
             <button onClick={()=>console.log(element.current.value)}>get input</button>
         </div>
+    )
+}
+```
+
+### <a name="link-part-8">memo, useCallback, useMemo</a>
+
+When using `memo`, child component won't reload when reloading father component.
+
+Use `useCallback`:
+
+```jsx
+const Child = memo((props) => {
+    console.log(123)
+    return <button onClick={()=>props.doSth()}>add</button>
+})
+
+export default function App6() {
+    const [num, setNum] = useState(1)
+
+    const doSth = useCallback(() => {
+        setNum((num) => num + 1)
+    }, [])
+
+    return (
+        <div>
+            <h3>Number: {num}</h3>
+            <Child doSth={doSth}/>
+        </div>
+        
+    )
+}
+```
+
+Use `UseMemo`:
+
+```jsx
+const Child = memo((props) => {
+    console.log(123)
+    return <button onClick={()=>props.doSth()}>add</button>
+})
+
+export default function App6() {
+    const [num, setNum] = useState(1)
+
+    const doSth = useMemo(() => {
+        return ()=>setNum(num=>num+1)
+    })
+
+    return (
+        <div>
+            <h3>Number: {num}</h3>
+            <Child doSth={doSth}/>
+        </div>
+        
     )
 }
 ```
