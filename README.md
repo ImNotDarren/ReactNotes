@@ -529,6 +529,27 @@ export default function App9() {
 }
 ```
 
+To pass in parameters:
+
+Firstly, in `/src/router/index.jsx`, change route path to include the parameter:
+
+```jsx
+<Route path="/list/:id" element={<List />}></Route>
+```
+
+Then, use `useParams` to get the parameter:
+
+```jsx
+function List() {
+    const {id} = useParams()
+    return (
+        <h2>List - {}</h2>
+    )
+}
+
+export default List
+```
+
 
 ### <a name="link-part-end">Some Tips</a>
 
