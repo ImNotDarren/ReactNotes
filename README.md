@@ -535,6 +535,8 @@ export default function App9() {
 
 <a name="link-part-10-1-4">To pass in parameters:</a>
 
+**1. Use '/'**
+
 Firstly, in `/src/router/index.jsx`, change route path to include the parameter:
 
 ```jsx
@@ -552,6 +554,28 @@ function List() {
 }
 
 export default List
+```
+
+**2. Use '?'**
+
+In `/src/App9.jsx`:
+
+```jsx
+<Link to="/home?id=456">Home</Link>
+```
+
+Then, in `/src/pages/Home.jsx`, use `useSearchParams` to get `id`:
+
+```jsx
+function Home() {
+    const [searchParams] = useSearchParams()
+    const id = searchParams.getAll('id')[0]
+  return (
+    <h2>Home - {id}</h2>
+  )
+}
+
+export default Home
 ```
 
 
