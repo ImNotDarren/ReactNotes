@@ -14,6 +14,7 @@
 - [Controlled Components and Uncontrolled Components](#link-part-7)
 - [memo, useCallback, useMemo](#link-part-8)
 - [React Redux](#link-part-9)
+- [React Router](#link-part-10)
 
 
 ### <a name="link-part-1">Create React project</a>
@@ -333,7 +334,7 @@ Create  a `store` folder under `/src`.
 
 Create two files - index.js and reducer.js under `/src/store`.
 
-Create a initial state in reducer.js, and export a function:
+Create a initial state in `reducer.js`, and export a function:
 
 ```js
 const defaultState = {
@@ -341,12 +342,23 @@ const defaultState = {
 }
 
 // export a function
-export default (state=defaultState) => {
-    return state
+export default (state=defaultState, action) => {
+    let newState = JSON.parse(JSON.stringify(state)) // deepcopy
+
+    switch(action.type){
+        case "addNum":
+            newState.num += action.value
+            break
+
+        default:
+            break
+    }
+
+    return newState
 }
 ```
 
-Create a store and export it in index.js
+Create a store and export it in `index.js`
 
 ```js
 // import reducer
@@ -376,7 +388,10 @@ Add a connector to the component that you wanna use the varible:
 ```js
 function App8(props) {
   return (
-    <div>Number: {props.num}</div>
+      <>
+          <div>Number: {props.num}</div>
+          <button onClick={()=>props.add()}>add</button>
+      </>
   )
 }
 
@@ -385,6 +400,24 @@ const mapStateToProps = (state) => {
         num: state.num
     }
 }
+// dispatch an action to reducer
+const mapDispatchToProps = (dispatch) => {
+    return {
+        add(){
+            const action = {
+                type: "addNum",
+                value: 2
+            }
+            dispatch(action)
+        }
+    }
+}
 
-export default connect(mapStateToProps)(App8)
+export default connect(mapStateToProps, mapDispatchToProps)(App8)
 ```
+
+### <a name="link-part-10">React Router</a>
+
+Official website: https://reactrouter.com
+
+
