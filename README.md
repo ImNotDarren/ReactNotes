@@ -489,7 +489,7 @@ export default function App9() {
   )
 }
 ```
-<a name="link-part-10-1-1>Use links to route:</a>
+<a name="link-part-10-1-1">Use links to route:</a>
 
 ```jsx
 export default function App9() {
@@ -507,14 +507,14 @@ export default function App9() {
 }
 ```
 
-<a name="link-part-10-1-2>To get current location, we can use `useLocation`:</a>
+<a name="link-part-10-1-2">To get current location, we can use `useLocation`:</a>
 
 ```jsx
 const location = useLocation()
 console.log(location.pathname)
 ```
 
-<a name="link-part-10-1-3>Use a button to route - `useNavigate`</a>
+<a name="link-part-10-1-3">Use a button to route - `useNavigate`</a>
 
 ```jsx
 export default function App9() {
@@ -533,7 +533,7 @@ export default function App9() {
 }
 ```
 
-<a name="link-part-10-1-4>To pass in parameters:</a>
+<a name="link-part-10-1-4">To pass in parameters:</a>
 
 Firstly, in `/src/router/index.jsx`, change route path to include the parameter:
 
