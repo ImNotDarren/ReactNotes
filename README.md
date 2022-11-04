@@ -16,6 +16,10 @@
 - [React Redux](#link-part-9)
 - [React Router](#link-part-10)
 - - [BrowserRouter](#link-part-10-1)
+- - - [Use Links to Route](#link-part-10-1-1)
+- - - [Get Current Location](#link-part-10-1-2)
+- - - [Use Buttons to Route](#link-part-10-1-3)
+- - - [Pass in parameters](#link-part-10-1-4)
 - [Some Tips](#link-part-end)
 
 
@@ -485,7 +489,7 @@ export default function App9() {
   )
 }
 ```
-Use links to route:
+<a name="link-part-10-1-1>Use links to route:</a>
 
 ```jsx
 export default function App9() {
@@ -503,14 +507,14 @@ export default function App9() {
 }
 ```
 
-To get current location, we can use `useLocation`:
+<a name="link-part-10-1-2>To get current location, we can use `useLocation`:</a>
 
 ```jsx
 const location = useLocation()
 console.log(location.pathname)
 ```
 
-Use a button to route - `useNavigate`
+<a name="link-part-10-1-3>Use a button to route - `useNavigate`</a>
 
 ```jsx
 export default function App9() {
@@ -529,7 +533,7 @@ export default function App9() {
 }
 ```
 
-To pass in parameters:
+<a name="link-part-10-1-4>To pass in parameters:</a>
 
 Firstly, in `/src/router/index.jsx`, change route path to include the parameter:
 
