@@ -485,6 +485,23 @@ export default function App9() {
   )
 }
 ```
+Use links to route:
+
+```jsx
+export default function App9() {
+  return (
+    <div>
+        <ul>
+            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/list">List</Link></li>
+            <li><Link to="/detail">Detail</Link></li>
+        </ul>
+        <hr/>
+        <Outlet />
+    </div>
+  )
+}
+```
 
 
 ### <a name="link-part-end">Some Tips</a>
