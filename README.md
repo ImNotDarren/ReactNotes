@@ -578,6 +578,32 @@ function Home() {
 export default Home
 ```
 
+**3. To pass in more complex data**
+
+Pass in parameters through `useNavigate` in `/src/App9.jsx`:
+
+```jsx
+const goDetail = () => {
+        navigate('/detail', {
+            state: {username: "jack"}
+        })
+    }
+```
+
+Then get the parameter by `useLocation`:
+
+```jsx
+function Detail() {
+    let location = useLocation()
+    let username = location.state ? location.state.username : ""
+    return (
+        <h2>Detail - {username}</h2>
+    )
+}
+
+export default Detail
+```
+
 
 ### <a name="link-part-end">Some Tips</a>
 
