@@ -19,8 +19,8 @@
 - - - [Use Links to Route](#link-part-10-1-1)
 - - - [Get Current Location](#link-part-10-1-2)
 - - - [Use Buttons to Route](#link-part-10-1-3)
-- - - [Pass in parameters](#link-part-10-1-4)
-- - - [Error Page](#link-part-10-5)
+- - - [Error Page](#link-part-10-1-4)
+- - - [Pass in parameters](#link-part-10-5)
 - [Some Tips](#link-part-end)
 
 
