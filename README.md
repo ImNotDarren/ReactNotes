@@ -487,6 +487,6 @@ export default function App9() {
 ```
 
 
-### ### <a name="link-part-end">Some Tips</a>
+### <a name="link-part-end">Some Tips</a>
 
 - Quickly create list: `ul>li*3>a` + `enter`
