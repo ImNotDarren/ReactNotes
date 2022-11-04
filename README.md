@@ -84,5 +84,5 @@ export default class App2 extends Component {
 }
 ```
 
-### <a name="link-part-4">React Function Component - rfc</a>
+### <a name="link-part-5">React Function Component - rfc</a>
 
