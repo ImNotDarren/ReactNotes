@@ -503,6 +503,13 @@ export default function App9() {
 }
 ```
 
+To get current location, we can use `useLocation`:
+
+```jsx
+const location = useLocation()
+console.log(location.pathname)
+```
+
 
 ### <a name="link-part-end">Some Tips</a>
 
