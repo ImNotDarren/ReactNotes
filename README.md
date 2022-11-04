@@ -15,7 +15,7 @@
 - [memo, useCallback, useMemo](#link-part-8)
 - [React Redux](#link-part-9)
 - [React Router](#link-part-10)
-- - [BrowserRouter](#link-part-10-1]
+- - [BrowserRouter](#link-part-10-1)
 
 
 ### <a name="link-part-1">Create React project</a>
