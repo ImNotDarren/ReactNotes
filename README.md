@@ -6,6 +6,7 @@
 - [React Syntax](#link-part-3)
 - [React Class Component](#link-part-4)
 - [React Function Component](#link-part-5)
+- [Hook](#link-part-6)
 
 ### <a name="link-part-1">Create React project</a>
 ```
@@ -98,3 +99,63 @@ define label class in jsx:
 
 ### <a name="link-part-5">React Function Component - rfc</a>
 
+```jsx
+const FunctionApp = () => {
+    return <h2>App</h2>
+}
+
+export default FunctionApp
+```
+There's no lifecycle or state in RFC.
+
+### <a name="link-part-6">Hook</a>
+
+#### useState
+
+Use `useState` as the `setState` function in React class component.
+
+`useState` has two outputs: the varible and the function to modify it.
+
+```jsx
+function Hook(){
+    // Hook can only be at the very beginning of the function
+    const [num, setNum] = useState(1)
+
+    const fn = () => {
+        setNum(num + 1)
+    }
+
+    return (
+        <>
+            <h2>{num}</h2>
+            <button onClick={fn}>add</button>
+        </>
+        
+    )
+}
+
+export default Hook
+```
+
+#### useEffect
+
+`useEffect` can simulate a lifecycle.
+
+**Mounted:**
+
+```jsx
+useEffect(()=>{
+    console.log('mounted')
+})
+```
+
+**Inspect varible update:**
+
+- To inspect all varibles, remove the second parameter (the array).
+- To inspect none varible, pass in an empty array.
+
+```jsx
+useEffect(()=>{
+    console.log('num1 updated')
+}, [num1])
+```
