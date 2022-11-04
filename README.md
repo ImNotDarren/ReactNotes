@@ -361,4 +361,30 @@ const store = legacy_createStore(reducer)
 export default store
 ```
 
+Add a provider to top component:
 
+```js
+root.render(
+    <Provider store={store}>
+        <App8/>
+    </Provider>
+)
+```
+
+Add a connector to the component that you wanna use the varible:
+
+```js
+function App8(props) {
+  return (
+    <div>Number: {props.num}</div>
+  )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        num: state.num
+    }
+}
+
+export default connect(mapStateToProps)(App8)
+```
