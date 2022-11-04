@@ -420,4 +420,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App8)
 
 Official website: https://reactrouter.com
 
-
+Install:
+```
+$ npm install react-router-dom@6
+```
