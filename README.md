@@ -84,5 +84,17 @@ export default class App2 extends Component {
 }
 ```
 
+#### Pass parameters to function
+
+```jsx
+<button onClick={this.btnClick.bind(this, 1)}>button1</button>
+```
+
+define label class in jsx:
+```jsx
+// className instead of class
+<div className='box'>something</div>
+```
+
 ### <a name="link-part-5">React Function Component - rfc</a>
 
