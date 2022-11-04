@@ -510,6 +510,25 @@ const location = useLocation()
 console.log(location.pathname)
 ```
 
+Use a button to route - `useNavigate`
+
+```jsx
+export default function App9() {
+    const navigate = useNavigate()
+    const goDetail = () => {
+        navigate('/detail')
+    }
+
+    return (
+        <div>
+            <button onClick={goDetail}>detail</button>
+            <hr/>
+            <Outlet />
+        </div>
+    )
+}
+```
+
 
 ### <a name="link-part-end">Some Tips</a>
 
