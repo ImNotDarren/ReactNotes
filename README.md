@@ -20,7 +20,7 @@
 - - - [Get Current Location](#link-part-10-1-2)
 - - - [Use Buttons to Route](#link-part-10-1-3)
 - - - [Error Page](#link-part-10-1-4)
-- - - [Pass in parameters](#link-part-10-5)
+- - - [Pass in Parameters](#link-part-10-1-5)
 - [Some Tips](#link-part-end)
 
 
