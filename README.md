@@ -16,6 +16,7 @@
 - [React Redux](#link-part-9)
 - [React Router](#link-part-10)
 - - [BrowserRouter](#link-part-10-1)
+- [Some Tips](#link-part-end)
 
 
 ### <a name="link-part-1">Create React project</a>
@@ -486,3 +487,6 @@ export default function App9() {
 ```
 
 
+### ### <a name="link-part-end">Some Tips</a>
+
+- Quickly create list: `ul>li*3>a` + `enter`
