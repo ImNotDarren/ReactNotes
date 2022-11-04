@@ -15,6 +15,7 @@
 - [memo, useCallback, useMemo](#link-part-8)
 - [React Redux](#link-part-9)
 - [React Router](#link-part-10)
+- - [BrowserRouter](#link-part-10-1]
 
 
 ### <a name="link-part-1">Create React project</a>
@@ -424,3 +425,64 @@ Install:
 ```
 $ npm install react-router-dom@6
 ```
+
+#### <a name="link-part-10-1">1. BrowserRouter</a>
+
+Store all the pages in `/src/pages`. (All pages must export at the end)
+
+For example:
+```jsx
+function Home() {
+  return (
+    <h2>Home</h2>
+  )
+}
+export default Home
+```
+
+Create a new folder `/src/router`, then create a router file `index.jsx`.
+
+```jsx
+// react-router-dom有两种模式：BrowserRouter(History模式)，HashRouter(Hash模式)
+// 定义一个路由
+const BaseRouter = () => (
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<App9 />}>
+                <Route path="/home" element={<Home />}></Route>
+                <Route path="/list" element={<List />}></Route>
+                <Route path="/detail" element={<Detail />}></Route>
+            </Route>
+        </Routes>
+        
+    </BrowserRouter>
+)
+
+export default BaseRouter
+```
+
+Then, add the router to `/src/index.js`:
+
+```jsx
+const container = document.getElementById('root')
+const root = createRoot(container)
+
+root.render(
+    <BaseRouter />
+)
+```
+
+Lastly, add `<outlet />` label to root page (/src/App9.jsx):
+
+```jsx
+export default function App9() {
+  return (
+    <div>
+        <h3>App9</h3>
+        <Outlet />
+    </div>
+  )
+}
+```
+
+
