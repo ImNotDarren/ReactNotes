@@ -7,7 +7,9 @@
 - [React Class Component](#link-part-4)
 - [React Function Component](#link-part-5)
 - [Hook](#link-part-6)
-
+- - [useState](#link-part-6-1)
+- - [useEffect](#link-part-6-2)
+- - [createContext](#link-part-6-3)
 ### <a name="link-part-1">Create React project</a>
 ```
 $ npx create-react-app ${app_name}
@@ -110,7 +112,7 @@ There's no lifecycle or state in RFC.
 
 ### <a name="link-part-6">Hook</a>
 
-#### useState
+#### <a name="link-part-6-1">useState</a>
 
 Use `useState` as the `setState` function in React class component.
 
@@ -136,8 +138,7 @@ function Hook(){
 
 export default Hook
 ```
-
-#### useEffect
+#### <a name="link-part-6-2">useEffect</a>
 
 `useEffect` can simulate a lifecycle.
 
@@ -158,4 +159,56 @@ useEffect(()=>{
 useEffect(()=>{
     console.log('num1 updated')
 }, [num1])
+```
+
+**beforeDestory/Garbage Collection**
+
+```jsx
+useEffect(()=>{
+    return () => {
+        console.log('destory')
+    }
+})
+```
+
+#### <a name="link-part-6-3">createContext</a>
+
+Initialize a context first:
+```jsx
+const NumContext = createContext()
+```
+
+Top component:
+```jsx
+export default function AppContext() {
+    const [num, setNum] = useState(123)
+    return (
+        <NumContext.Provider value={{num, setNum}}>
+            <Father/>
+        </NumContext.Provider>
+    )
+}
+```
+
+Father component:
+```jsx
+const Father = () => <Child/>
+```
+
+Child component:
+```jsx
+function Child(){
+    return (
+        <NumContext.Consumer>
+           {
+                ({num, setNum}) => (
+                    <>
+                        <h2>{num}</h2>
+                        <button onClick={()=>setNum(456)}>change</button>
+                    </>
+                )
+           }
+        </NumContext.Consumer>
+    )
+}
 ```
