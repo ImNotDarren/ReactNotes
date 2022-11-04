@@ -20,6 +20,7 @@
 - - - [Get Current Location](#link-part-10-1-2)
 - - - [Use Buttons to Route](#link-part-10-1-3)
 - - - [Pass in parameters](#link-part-10-1-4)
+- - - [Error Page](#link-part-10-5)
 - [Some Tips](#link-part-end)
 
 
@@ -533,7 +534,38 @@ export default function App9() {
 }
 ```
 
-<a name="link-part-10-1-4">To pass in parameters:</a>
+<a name="link-part-10-1-4">Error Page</a>
+
+Firstly, add an error page under `/src/pages`:
+
+```jsx
+import ErrorImg from '../assets/404.jpg'
+function Error() {
+    return (
+        <div>
+            <img src={ErrorImg} alt="" />
+        </div>
+    )
+}
+
+export default Error
+```
+
+Then, add error page route in `/src/router/index.jsx`:
+
+```jsx
+<Routes>
+    <Route path="/" element={<App9 />}>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/list/:id" element={<List />}></Route>
+        <Route path="/detail" element={<Detail />}></Route>
+    </Route>
+    <Route path="/*" element={<Error />}></Route>
+</Routes>
+```
+
+
+<a name="link-part-10-1-5">To pass in parameters:</a>
 
 **1. Use '/'**
 
@@ -603,6 +635,7 @@ function Detail() {
 
 export default Detail
 ```
+
 
 
 ### <a name="link-part-end">Some Tips</a>
