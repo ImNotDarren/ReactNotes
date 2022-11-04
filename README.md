@@ -13,6 +13,7 @@
 - - [useContext](#link-part-6-4)
 - [Controlled Components and Uncontrolled Components](#link-part-7)
 - [memo, useCallback, useMemo](#link-part-8)
+- [React Redux](#link-part-9)
 
 
 ### <a name="link-part-1">Create React project</a>
@@ -319,3 +320,13 @@ export default function App6() {
     )
 }
 ```
+### <a name="link-part-9">React Redux</a>
+
+Official website: https://react-redux.js.org
+
+Install:
+```
+$ npm i redux react-redux
+```
+
+
