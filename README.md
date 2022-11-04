@@ -440,7 +440,7 @@ function Home() {
 export default Home
 ```
 
-Create a new folder `/src/router`, then create a router file `index.jsx`.
+Create a new folder `/src/router`, then create a router file `/src/router/index.jsx`.
 
 ```jsx
 // react-router-dom有两种模式：BrowserRouter(History模式)，HashRouter(Hash模式)
@@ -472,7 +472,7 @@ root.render(
 )
 ```
 
-Lastly, add `<outlet />` label to root page (/src/App9.jsx):
+Lastly, add `<Outlet />` label to root page (`/src/App9.jsx`):
 
 ```jsx
 export default function App9() {
